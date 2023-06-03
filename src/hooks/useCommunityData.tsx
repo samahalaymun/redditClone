@@ -153,10 +153,10 @@ const useCommunityData = (ssrCommunityData?: boolean) => {
 
   useEffect(() => {
     const { communityId } = router.query;
-    if (communityId && !communityStateValue.currentCommunity.id) {
+    if (communityId ) {
         getCommunityData(communityId as string);
     }
-  }, [router.query, communityStateValue.currentCommunity]);
+  }, [router.query]);
   return {
     communityStateValue,
     setCommunityStateValue,

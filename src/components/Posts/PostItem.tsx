@@ -95,8 +95,6 @@ export const PostItem: React.FC<PostItemProps> = ({
     } catch (error:any) {
        console.log(error.message)
     }
-
-   
   }
   useEffect(()=>{
      getCommunityImageUrL();
@@ -117,7 +115,7 @@ export const PostItem: React.FC<PostItemProps> = ({
         bg={singlePostPage ? "none" : "gray.100"}
         p={2}
         width="40px"
-        borderLeftRadius={singlePostPage ? "none" : "3px 0px 0px 3px"}
+        borderRadius={singlePostPage ? "0" : "4px 0px 0px 4px"}
       >
         <Icon
           as={

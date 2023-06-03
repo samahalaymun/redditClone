@@ -10,7 +10,10 @@ import { FaReddit } from "react-icons/fa";
 export const Recommendations: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [communities, setCommunities] = useState<Community[]>([]);
-  const { communityStateValue, onJoinLeaveCommunity } = useCommunityData();
+  const {
+    communityStateValue,
+    onJoinLeaveCommunity,
+  } = useCommunityData();
   const getCommunityRecommendations = async () => {
     try {
       setLoading(true);
@@ -81,10 +84,9 @@ export const Recommendations: React.FC = () => {
                 (snippet) => snippet.communityId === community.id
               );
               return (
-                <>
+                <div key={community.id}>
                   <Link key={community.id} href={`/r/${community.id}`}>
                     <Flex
-                      key={community.id}
                       position="relative"
                       align="center"
                       fontSize="10pt"
@@ -100,6 +102,7 @@ export const Recommendations: React.FC = () => {
                         <Flex align="center" width="80%">
                           {community.imageURL ? (
                             <Image
+                              alt="community image"
                               borderRadius="full"
                               boxSize="28px"
                               src={community.imageURL}
@@ -138,7 +141,7 @@ export const Recommendations: React.FC = () => {
                       </Box>
                     </Flex>
                   </Link>
-                </>
+                </div>
               );
             })}
             <Box p="10px 20px">

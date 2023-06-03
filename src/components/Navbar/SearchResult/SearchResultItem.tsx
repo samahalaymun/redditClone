@@ -29,10 +29,16 @@ export const SearchResultItem: React.FC<SearchResultItemProps> = ({
       align="center"
       _hover={{ bg: "gray.200" }}
       p="8px 16px"
-      onClick={ onItemClicked}
+      onClick={onItemClicked}
     >
       {image ? (
-        <Image src={image} borderRadius="full" boxSize="22px" mr={2} />
+        <Image
+          alt="Community img"
+          src={image}
+          borderRadius="full"
+          boxSize="22px"
+          mr={2}
+        />
       ) : (
         <Icon as={FaReddit} fontSize={22} color="blue.500" mr={2} />
       )}

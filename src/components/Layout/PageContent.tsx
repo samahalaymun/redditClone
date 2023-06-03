@@ -10,7 +10,6 @@ const PageContent: React.FC<PageContentProps> = ({children}) => {
         <Flex width="95%" maxWidth="860px" justify="center">
           {/* Left side */}
           <Flex
-           
             direction="column"
             width={{ base: "100%", md: "65%" }}
             mr={{ base: "0", md: 6 }}
@@ -18,7 +17,11 @@ const PageContent: React.FC<PageContentProps> = ({children}) => {
             {children && children[0 as keyof typeof children]}
           </Flex>
           {/* right side */}
-          <Flex display={{ base: "none", md: "flex" }}  flexGrow={1}>
+          <Flex
+            display={{ base: "none", md: "flex" }}
+            width={{ base: "100%", md: "35%" }}
+            flexGrow={1}
+          >
             {children && children[1 as keyof typeof children]}
           </Flex>
         </Flex>

@@ -21,6 +21,7 @@
     "eslint-config-next": "13.4.2",
     "firebase": "^9.22.0",
     "framer-motion": "^10.12.10",
+    "intercept-stdout": "^0.1.2",
     "moment": "^2.29.4",
     "next": "13.4.2",
     "react": "18.2.0",
@@ -33,5 +34,9 @@
   },
   "devDependencies": {
     "@types/safe-json-stringify": "^1.1.2"
-  }
+  },
+  "cacheDirectories": [
+    "node_modules/",
+    ".next/cache/"
+  ]
 }

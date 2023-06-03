@@ -24,6 +24,7 @@ export const ImageContainer: React.FC<ImageContainerProps> = ({
       overflow="hidden"
     >
       <Image
+        alt="post img"
         src={image}
         width="100%"
         height="100%"
@@ -32,7 +33,13 @@ export const ImageContainer: React.FC<ImageContainerProps> = ({
         top={0}
         left={0}
       />
-      <Image src={image} maxWidth="400px" maxHeight="500px" zIndex={0}/>
+      <Image
+        alt="post img"
+        src={image}
+        maxWidth="400px"
+        maxHeight="500px"
+        zIndex={0}
+      />
     </Flex>
     <Stack direction="row" mt={4} justify="flex-end">
       <Button height="28px" onClick={() => setSelectedTab("Post")}>

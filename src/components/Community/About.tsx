@@ -157,6 +157,7 @@ export const About: React.FC<AboutProps> = ({
                   />
                   {communityData.imageURL ||selectedFile? (
                     <Image
+                    alt="community image"
                       boxSize="40px"
                       borderRadius="full"
                       src={selectedFile || communityData.imageURL}

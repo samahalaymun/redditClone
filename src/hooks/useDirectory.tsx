@@ -11,6 +11,7 @@ export const useDirectory = () => {
   const [directoryState,setDirectoryState] = useRecoilState(directoryMenuState);
   const router=useRouter();
   const communityStateValue=useRecoilValue(CommunityState);
+  let counter=0;
   const toggleMenuOpen=()=>{
     setDirectoryState(prev=>({
         ...prev,
@@ -31,7 +32,9 @@ export const useDirectory = () => {
 
   useEffect(() => {
     const { currentCommunity } = communityStateValue;
-    if (router.query.communityId&&currentCommunity.id) {
+    counter++;
+    console.log(counter);
+    if (router.query.communityId && currentCommunity.id) {
       setDirectoryState((prev) => ({
         ...prev,
         selectedMenuItem: {
@@ -48,6 +51,7 @@ export const useDirectory = () => {
       ...prev,
       selectedMenuItem: defaultMenuItem,
     }));
+      return () => console.log("unmounting...");
   }, [router.query, communityStateValue.currentCommunity]);
 
   return {

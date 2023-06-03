@@ -39,8 +39,9 @@ const Navbar: React.FC = () => {
         onClick={() => onSelectHomePage()}
         cursor="pointer"
       >
-        <Image src="/images/redditFace.svg" height="30px" />
+        <Image alt="reddit logo" src="/images/redditFace.svg" height="30px" />
         <Image
+          alt="reddit logo"
           src="/images/redditText.svg"
           height="46px"
           display={{ base: "none", md: "unset" }}

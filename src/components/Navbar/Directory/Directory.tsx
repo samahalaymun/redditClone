@@ -15,9 +15,9 @@ import Communities from "./Communities";
 import { useDirectory } from "@/src/hooks/useDirectory";
 const Directory: React.FC = () => {
 const { directoryState, toggleMenuOpen } = useDirectory();
-
+//console.log(directoryState.selectedMenuItem);
     return (
-      <Menu isOpen={directoryState.isOpen} >
+      <Menu isOpen={directoryState.isOpen}>
         <MenuButton
           cursor="pointer"
           padding="0 6px"
@@ -38,6 +38,7 @@ const { directoryState, toggleMenuOpen } = useDirectory();
             <Flex alignItems="center">
               {directoryState.selectedMenuItem.imageURL ? (
                 <Image
+                  alt="community image"
                   src={directoryState.selectedMenuItem.imageURL}
                   borderRadius="full"
                   boxSize="18px"

@@ -193,6 +193,7 @@ const Comments: React.FC<CommentsProps> = ({
               <>
                 {comments.map((comment) => (
                   <CommentItem
+                    key={comment.id}
                     comment={comment}
                     isLoading={deleteLoading === (comment.id as string)}
                     onDeleteComment={onDeleteComment}

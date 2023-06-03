@@ -21,7 +21,7 @@ const CreatePostLink: React.FC<CreatePostProps> = () => {
   const {toggleMenuOpen}=useDirectory()
   const onClick = () => {
     // Could check for user to open auth modal before redirecting to submit
-    console.log(selectedTab);
+   
     if (!user) {
       setAuthModalState({ open: true, view: "login" });
       return;
@@ -41,10 +41,14 @@ const CreatePostLink: React.FC<CreatePostProps> = () => {
     }
     toggleMenuOpen();
   };
+
   useEffect(()=>{
-    if(selectedTab)
+    if(selectedTab){
       onClick();
-  },[selectedTab])
+    }
+      
+  },[selectedTab]);
+
   return (
     <Flex
       justify="space-evenly"

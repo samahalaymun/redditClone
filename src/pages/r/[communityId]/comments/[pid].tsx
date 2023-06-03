@@ -6,6 +6,7 @@ import { PostItem } from '@/src/components/Posts/PostItem';
 import Comments from '@/src/components/Posts/comments/Comments';
 import { auth, firestore } from '@/src/firebase/clientApp';
 import useCommunityData from '@/src/hooks/useCommunityData';
+import { useDirectory } from '@/src/hooks/useDirectory';
 import UsePosts from '@/src/hooks/usePosts';
 import { User } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
@@ -18,7 +19,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
    const router = useRouter();
    const { communityId, pid } = router.query;
    const { communityStateValue } = useCommunityData();
-   
+   const { setDirectoryState } = useDirectory();
    const {
      postStateValue,
      setPostStateValue,
@@ -30,7 +31,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
    const fetchPost = async () => {
      console.log("FETCHING POST");
-
      setLoading(true);
      try {
        const postDocRef = doc(firestore, "posts", pid as string);
@@ -39,6 +39,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
          ...prev,
          selectedPost: { id: postDoc.id, ...postDoc.data() } as Post,
        }));
+      
      } catch (error: any) {
        console.log("fetchPost error", error.message);
      }
