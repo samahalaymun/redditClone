@@ -12,7 +12,15 @@ function interceptStdout(text) {
 // Intercept in dev and prod
 intercept(interceptStdout);
 const nextConfig = {
-  reactStrictMode: true,
+   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  experimental: {
+    externalDir: true,
+  },
+  // Potential new config flag:
+  disableExperimentalFeaturesWarning: true,
 };
 
 module.exports = nextConfig
